@@ -3,6 +3,7 @@ import './App.css'
 import Card from'./components/Card';
 import Colorchanger from './components/Colorchanger';
 import PasswordGenerator from './components/PasswordGenerator';
+import CurrencyConverter from './components/CurrencyConverter';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       </div>
       <Colorchanger/>
       <PasswordGenerator/>
+      <CurrencyConverter/>
     </>
   )
 }
