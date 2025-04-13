@@ -9,6 +9,7 @@ import About from './components/About/About.tsx'
 import Contact from './components/Contact/Contact.tsx'
 import Github, { gitFollowers } from './components/Github/Github.tsx'
 import Users from './components/Users/Users.tsx'
+import Theme from './components/ThemeToggle/Theme.tsx'
 
 // const router = createBrowserRouter([   // one method to create router
 //   {
@@ -39,6 +40,7 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact/>} />
       <Route path="users/:id" element={<Users/>} />
       <Route path="github" element={<Github/>}  loader={gitFollowers} />
+      <Route path="theme" element={<Theme/>} />
     </Route>
   )
 );  // another method to create router

@@ -1,8 +1,12 @@
 import { useLoaderData } from "react-router-dom";
+import UserContext from "../../context/UserContext";
+import { useContext } from "react";
 
 const Github = () => {
     const data = useLoaderData();
+    const {user} = useContext<any>(UserContext);
 
+    console.log('Github data:',user);
     /** can load the data on page load using useeffect but can also be loaded in routes using loader  */
     //  const [data, setData] = useState<any>([]);
     //  useEffect(()=>{
@@ -15,7 +19,12 @@ const Github = () => {
     //  ,[]);
     return (  
     <>
-        <div className="w-full p-4 bg-amber-400 text-black text-2xl text-center">Github Followers: {data.followers} </div>
+    <div className="w-full p-4 bg-amber-400 text-black text-2xl text-center">
+        <h2>Github Followers: {data.followers} </h2>
+        <div>Name:{user.name}</div>
+        <div>Email: {user.email}</div>
+        <div>Tel: {user.tel}</div>
+    </div> 
     </>
     );
 }

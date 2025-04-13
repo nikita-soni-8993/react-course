@@ -1,4 +1,16 @@
+import { useContext, useState } from "react";
+import UserContext from "../../context/UserContext";
+
 const Contact = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [tel, setTel] = useState("");
+    const {setUser}:any = useContext(UserContext);
+   
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setUser({name,email, tel})
+    }
     return (
         <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
             <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
@@ -91,9 +103,11 @@ const Contact = () => {
                                     Full Name
                                 </label>
                                 <input
+                                    value={name}
                                     type="name"
                                     name="name"
                                     id="name"
+                                    onChange={(e)=>setName(e.target.value)}
                                     placeholder="Full Name"
                                     className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                                 />
@@ -104,6 +118,8 @@ const Contact = () => {
                                     Email
                                 </label>
                                 <input
+                                    value={email}
+                                    onChange={(e)=>setEmail(e.target.value)}
                                     type="email"
                                     name="email"
                                     id="email"
@@ -117,6 +133,8 @@ const Contact = () => {
                                     Number
                                 </label>
                                 <input
+                                    value={tel}
+                                    onChange={(email)=>setTel(email.target.value)}
                                     type="tel"
                                     name="tel"
                                     id="tel"
@@ -126,8 +144,8 @@ const Contact = () => {
                             </div>
 
                             <button
-                                type="submit"
-                                className="md:w-32 bg-orange-700 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 transition ease-in-out duration-300"
+                                onClick={handleSubmit}
+                                className="cursor-pointer md:w-32 bg-orange-700 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 transition ease-in-out duration-300"
                             >
                                 Submit
                             </button>
